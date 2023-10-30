@@ -13,6 +13,8 @@ defined( 'ABSPATH' ) || exit;
 $container = get_theme_mod( 'understrap_container_type' );
 ?>
 
+<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e( 'Skip to content', 'understrap' ); ?></a>
+
 <?php get_template_part( 'global-templates/blog' ); ?>
 
 <?php get_template_part( 'sidebar-templates/sidebar', 'prefooter' ); ?>

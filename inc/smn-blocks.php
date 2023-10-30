@@ -97,7 +97,7 @@ if ( function_exists( 'register_block_style' ) ) {
             $block_type,
             array(
                 'name'         => 'slick-carousel',
-                'label'        => sprintf( __( 'Carrusel', 'smn-admin' ), $i ),
+                'label'        => sprintf( __( 'Carrusel', 'smn-admin' ) ),
                 'is_default'   => false,
             )
         );
@@ -185,11 +185,11 @@ function list_block_wrapper( $block_content, $block ) {
         $block_content = str_replace( 
             array( '<ul class="', '<ol class="'), 
             array( '<ul class="wp-block-list ', '<ol class="wp-block-list '), $block_content );
-        }
+        
         $block_content = str_replace( 
             array( '<ul>', '<ol>'), 
             array( '<ul class="wp-block-list">', '<ol class="wp-block-list">'), $block_content );
-
+    }
     return $block_content;
 }
 

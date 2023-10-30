@@ -432,5 +432,39 @@ function smn_columns_content($column_name, $post_ID) {
     }
 }
 
+// function smn_get_cpt_labels( $single, $plural, $featured_image = 'Imagen destacada' ){
 
+//     $arr = array(
+//        'name' => $plural,
+//        'singular_name' => $single,
+//        'menu_name' => $plural,
+//        'name_admin_bar' => $single,
+//        'all_items' => sprintf( __( 'Todos/as los/as %s', 'smn-admin' ), $plural ),
+//     //    'add_new' => 'Añadir '.$single,
+//        'new_item' => sprintf( __( 'Nuevo/a %s', 'smn-admin' ), $single ),
+//        'new_item_name' => sprintf( __( 'Nombre del nuevo/a %s', 'smn-admin' ), $single ),
+//        'add_new_item' => sprintf( __( 'Añadir nuevo/a %s', 'smn-admin' ), $single ),
+//     //    'edit' => 'Editar',
+//        'edit_item' => sprintf( __( 'Editar %s', 'smn-admin' ), $single ),
+//        'update_item' => sprintf( __( 'Actualizar %s', 'smn-admin' ), $single ),
+//     //    'view' => 'Ver '.$plural,
+//        'view_item' => sprintf( __( 'Ver %s', 'smn-admin' ), $single ),
+//        'view_items' => sprintf( __( 'Ver %s', 'smn-admin' ), $plural ),
+//        'search_items' => sprintf( __( 'Buscar %s', 'smn-admin' ), $plural ),
+//        'not_found' => __( 'No encontrado', 'smn-admin' ),
+//        'not_found_in_trash' => sprintf( __( 'No se han encontrado %s en la papelera', 'smn-admin' ), $plural ),
+//        'parent' => $single . ' superior',
+
+//        'parent_item' => sprintf( __( '%s superior', 'smn-admin' ), $single ),
+//        'parent_item_colon' => sprintf( __( '%s superior:', 'smn-admin' ), $single ),
+//        'separate_items_with_commas' => sprintf( __( 'Separar %s con comas', 'smn-admin' ), $plural ),
+//     //    'choose_from_most_used' => sprintf( __( 'Elegir de entre los/as %s más usados/as', 'smn-admin' ), $plural ),
+//        'popular_items' => sprintf( __( '%s populares', 'smn-admin' ), $plural ),
+//        'no_terms' => sprintf( __( 'No hay %s', 'smn-admin' ), $plural ),
+//        'items_list' => sprintf( __( 'Lista de %s', 'smn-admin' ), $plural ),
+//        'items_list_navigation' => sprintf( __( 'Navegación de la lista de %s', 'smn-admin' ), $plural ),
+//     );
+//     return $arr;
+
+// }
 ?>

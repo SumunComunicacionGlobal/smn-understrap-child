@@ -25,8 +25,12 @@ if ( class_exists( 'WooCommerce' ) ) {
     $understrap_includes[] = '/smn-woocommerce.php';
 }
 
-if (!class_exists('ACF')) {
+if ( class_exists('ACF')) {
     $understrap_includes[] = '/smn-acf.php';
+}
+
+if ( class_exists('FacetWP') ) {
+    $understrap_includes[] = '/smn-facetwp.php';
 }
 
 if ( function_exists( 'gdpr_cookie_is_accepted' ) ) {
