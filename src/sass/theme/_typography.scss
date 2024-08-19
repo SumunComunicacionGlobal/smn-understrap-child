@@ -1,0 +1,152 @@
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.entry-meta {
+    font-size: $font-size-sm;
+    color: $gray-600;
+}
+
+.text-white a {
+	color: $white;
+}
+
+.has-large-font-size, 
+.has-x-large-font-size, 
+.has-larger-font-size, 
+.has-huge-font-size {
+	line-height: $headings-line-height;
+}
+
+// ul.wp-block-list {
+//     padding-left: 0;
+
+//     li {
+//         font-size: $font-size-base * 1.125;
+//         margin-bottom: $spacer * .25;
+//         background: url('../img/icono-check.svg') no-repeat left top transparent;
+//         list-style-type: none;
+//         padding-left: 2.5rem;
+//         min-height: 2rem;
+//     }
+
+// }
+
+h1, .h1 {
+
+}
+
+h2, .h2 {
+
+}
+
+h3, .h3 {
+
+}
+
+h4, .h4 {
+
+}
+
+h5, .h5 {
+
+}
+
+h6, .h6 {
+
+}
+
+.display-1 {
+
+}
+
+.display-2 {
+
+}
+
+.display-3 {
+
+}
+
+.display-4 {
+
+}
+
+small,
+.small {
+    line-height: $headings-line-height;
+}
+
+mark,
+.mark {
+
+}
+
+blockquote,
+.blockquote,
+.wp-block-quote {
+    font-style: italic;
+    font-size: $font-size-base * 1.375;
+}
+
+@include media-breakpoint-up(lg) {
+
+    .display-1 {
+
+    }
+    
+    h1, .h1 {
+
+    }
+    
+    h2, .h2 {
+
+    }
+    
+    h3, .h3 {
+
+    }
+    
+    h4, .h4 {
+
+    }
+
+    h5, .h5 {
+
+    }
+
+    h6, .h6 {
+
+    }
+
+    .display-1 {
+
+    }
+    
+    .display-2 {
+    
+    }
+    
+    .display-3 {
+    
+    }
+    
+    .display-4 {
+    
+    }
+    
+}
+
+#search-wrapper,
+#error-404-wrapper {
+    padding-top: $spacer*4;
+
+    h1.page-title {
+        font-size: $font-size-base * 1.75;
+    }
+
+    h2 {
+        font-size: $font-size-base * 1.4;
+    }
+}

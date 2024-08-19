@@ -1,0 +1,23 @@
+#wrapper-prefooter {
+	border-top: 1px solid $gray-300;
+}
+
+#wrapper-footer-full {
+	background-color: $light;
+}
+
+#wrapper-footer {
+	padding: $spacer 0 $spacer * 2;
+	background-color: $dark;
+	color: $white;
+	font-size: $font-size-sm;
+
+	a {
+		color: $white;
+	}
+
+	@include media-breakpoint-down(md) {
+		text-align: center;
+	}
+
+}
