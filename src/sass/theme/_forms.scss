@@ -1,9 +1,10 @@
-.wpcf7 {
+.wpcf7 form {
     max-width: 100% !important;
     
     label {
         font-size: $font-size-sm;
         width: 100%;
+        font-weight: $font-weight-semibold;
     }
 
     .wpcf7-list-item > label {
@@ -11,7 +12,14 @@
     }
     
     .wpcf7-response-output {
+        padding: $spacer;
         height: auto !important;
+        border-radius: $border-radius;
+        margin-left: 0;
+        margin-right: 0;
+        border-width: $border-width;
+        background-color: $white;
+        box-shadow: $box-shadow-sm;
     }
     
     .form-control-sm {
@@ -52,10 +60,7 @@
       }
 
       input[type=submit] {
-        @extend .btn;
-        @extend .btn-dark;
-        color: $white;
-        transition: $transition-base;
+        padding: $btn-padding-y 50px;
     
         &:disabled {
             background-color: $dark;
@@ -68,6 +73,13 @@
             opacity: .8;
             color: $white;
         }
+
+        + .wpcf7-spinner {
+          margin-right: 0;
+          margin-left: -30px;
+          top: 6px;
+        }
+      
       }    
 
       .wpcf7-form {
@@ -128,12 +140,14 @@
   }
 }
 
-.wpcf7-submit {
+#comment {
+  @extend .form-control;
+  background-color: $gray-100;
+}
 
-  + .wpcf7-spinner {
-    margin-right: 0;
-    margin-left: -30px;
-    top: 6px;
-  }
-
+.pwgc-input-text,
+#pwgc-message,
+.input-text {
+  @extend .form-control;
+  background-color: $white;
 }

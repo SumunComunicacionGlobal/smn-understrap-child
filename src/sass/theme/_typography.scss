@@ -1,15 +1,36 @@
 * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-variant-numeric: lining-nums;
 }
 
 .entry-meta {
     font-size: $font-size-sm;
     color: $gray-600;
+    margin-bottom: $spacer*.5;
 }
 
 .text-white a {
 	color: $white;
+}
+
+p {
+    &.has-link-color,
+    &.has-text-color {
+        
+        a {
+            color: currentColor;
+        }
+
+    }
+}
+
+.wp-block-heading {
+    font-family: $font-family-serif;
+}
+
+.wp-block-heading {
+    // hyphens: auto;
 }
 
 .has-large-font-size, 
@@ -17,6 +38,22 @@
 .has-larger-font-size, 
 .has-huge-font-size {
 	line-height: $headings-line-height;
+}
+
+.wp-block-media-text__content {
+    
+    .wp-block-heading {
+        max-width: 400px;
+
+        &.has-text-align-right {
+            margin-left: auto;
+        }
+
+    }
+
+    p {
+        max-width: 600px;
+    }
 }
 
 // ul.wp-block-list {
@@ -50,12 +87,28 @@ h4, .h4 {
 }
 
 h5, .h5 {
-
+    font-family: $font-family-base;
+    font-weight: $font-weight-bold;
 }
 
 h6, .h6 {
-
+    font-family: $font-family-base;
+    font-weight: $font-weight-bold;
 }
+
+.display-1,
+.display-2,
+.display-3,
+.display-4 {
+    font-family: $headings-font-family;
+}
+
+.is-style-paragraph {
+    font-family: $font-family-base;
+    font-weight: $font-weight-base;
+    font-size: $font-size-base;
+}
+
 
 .display-1 {
 
@@ -90,6 +143,11 @@ blockquote,
     font-size: $font-size-base * 1.375;
 }
 
+figcaption {
+    font-family: $font-family-serif;
+    text-transform: uppercase;
+}
+
 @include media-breakpoint-up(lg) {
 
     .display-1 {
@@ -97,30 +155,32 @@ blockquote,
     }
     
     h1, .h1 {
-
+        font-size: $font-size-base * 4;
     }
     
     h2, .h2 {
-
+        font-size: $font-size-base * 3;
     }
     
     h3, .h3 {
-
+        font-size: $font-size-base * 2.5;
     }
     
     h4, .h4 {
-
+        font-size: $font-size-base * 1.875;
     }
 
     h5, .h5 {
-
+        font-size: $font-size-base * 1.5;
     }
 
     h6, .h6 {
-
+        font-size: $font-size-base * 1.25;
     }
 
-    .display-1 {
+    .display-1,
+    h1.wp-block-post-title,
+    h1.wp-block-heading {
 
     }
     
@@ -138,6 +198,90 @@ blockquote,
     
 }
 
+@include media-breakpoint-up(xl) {
+
+    .display-1,
+    h1.wp-block-post-title,
+    h1.wp-block-heading {
+        font-size: 7rem;
+    }
+
+}
+
+// xxl
+@include media-breakpoint-up(xxl) {
+
+    .is-style-featured-shadow {
+
+        .lead {
+            font-size: $h4-font-size;
+        }
+    }
+
+}
+
+@include media-breakpoint-down(xl) {
+
+    .display-1,
+    h1.wp-block-post-title,
+    h1.wp-block-heading,
+    .display-2 {
+        font-size: 4rem;
+    }
+
+}
+
+@include media-breakpoint-down(lg) {
+
+    .display-1,
+    h1.wp-block-heading,
+    h1.wp-block-post-title,
+    h1.wp-block-heading,
+    .display-2,
+    .display-3,
+    .display-4 {
+        font-size: 3.5rem;
+    }
+
+    .wp-block-heading,
+    p {
+
+        &[style*="font-size:80px"],
+        &[style*="font-size:70px"],
+        &[style*="font-size:60px"],
+        &[style*="font-size:4rem"],
+        &[style*="font-size:5rem"],
+        &[style*="font-size:6rem"],
+        &[style*="font-size:7rem"],
+        &[style*="font-size:8rem"] {
+            font-size: 3rem !important;
+        }
+    }
+
+}
+
+@include media-breakpoint-down(md) {
+
+
+}
+
+@include media-breakpoint-down(sm) {
+
+    .display-1,
+    h1.wp-block-post-title,
+    h1.wp-block-heading,
+    .display-2,
+    .display-3,
+    .display-4 {
+        font-size: $h1-font-size;
+    }
+
+    .has-mobile-lead-font-size {
+        font-size: $lead-font-size !important;
+    }
+
+}
+
 #search-wrapper,
 #error-404-wrapper {
     padding-top: $spacer*4;
@@ -149,4 +293,84 @@ blockquote,
     h2 {
         font-size: $font-size-base * 1.4;
     }
+}
+
+.widget-title {
+    text-transform: uppercase;
+    font-family: $headings-font-family;
+    font-size: $h3-font-size;
+}
+
+.price-list-plato-precio {
+    font-size: $lead-font-size;
+
+    .price-list-plato {
+        max-width: 80%;
+    }
+
+    .price-list-separador {
+        border-bottom: $border-color dotted $border-width;
+        flex-grow: 1;
+        margin-left: $spacer;
+        margin-right: $spacer;
+        height: 0;
+    }
+
+    .price-list-precio {
+        flex-shrink: 0;
+        font-size: $font-size-base;
+        color: $text-muted;
+    }
+
+    .price-list-simbolo-moneda {
+        font-size: $font-size-sm;
+    }
+}
+
+.modal-menu-montal {
+
+    .modal-content {
+        background-image: url('../img/fondo-papel.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .modal-body {
+        padding: $spacer*3;
+    }
+
+    .modal-body strong {
+        font-family: $headings-font-family;
+        font-style: italic;
+        font-size: $h4-font-size;
+        display: block;
+        margin-top: 1em;
+        line-height: $headings-line-height;
+        color: $text-muted;
+    }
+
+}
+
+.modal-menu-montal .modal-content,
+body.single-menu #single-wrapper {
+    background-image: url('../img/fondo-papel.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.modal-menu-montal .modal-body {
+    padding: $spacer*3;
+}
+
+.modal-menu-montal .modal-body strong,
+body.single-menu #single-wrapper strong {
+    font-family: $headings-font-family;
+    font-style: italic;
+    font-size: $h4-font-size;
+    display: block;
+    margin-top: 1em;
+    line-height: $headings-line-height;
+    color: $text-muted;
 }

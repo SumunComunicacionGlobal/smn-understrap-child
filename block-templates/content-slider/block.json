@@ -1,0 +1,15 @@
+{
+    "name": "acf/content-slider",
+    "title": "Slider de texto y fotos",
+    "category": "design",
+    "icon": "image-filter",
+    "keywords": ["slider"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "content-slider.php"
+    },
+    "supports": {
+        "color": true,
+        "anchor": true
+    }
+}

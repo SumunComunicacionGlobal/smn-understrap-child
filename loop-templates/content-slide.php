@@ -36,3 +36,5 @@ if ( has_post_thumbnail() ) {
 	</div><!-- #post-## -->
 
 </div>
+
+<?php

@@ -1,0 +1,60 @@
+.estancias-infografia {
+    position: relative;
+}
+
+.estancias-infografia-completa,
+.estancia-infografia {
+    transition: $transition-base;
+    transform: scale(0.9);
+
+    &.active {
+        opacity: 1;
+    }
+
+}
+
+.estancias-infografia-completa {
+    opacity: .1;
+}
+
+
+.estancia-infografia {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+
+    &.active{
+        transform: scale(1);
+    }
+
+}
+
+.estancia-infografia-destacado {
+    position: absolute;
+    background-color: rgba( $white, .9 );
+    padding: $spacer*.5;
+    border-radius: $border-radius;
+    max-width: $tooltip-max-width;
+
+    &-uno {
+        top: 10%;
+        left: 10%;
+    }
+
+    &-dos {
+        bottom: 10%;
+        right: 10%;
+    }
+
+    *:last-child {
+        margin-bottom: 0;
+    }
+
+    @include media-breakpoint-down(md) {
+        display: none;
+    }
+
+}

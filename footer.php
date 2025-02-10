@@ -22,46 +22,34 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 	<div class="<?php echo esc_attr( $container ); ?>">
 
-		<div class="row align-items-center">
+		<nav id="legal-nav" class="navbar navbar-expand navbar-light" aria-labelledby="legal-nav-label">
 
-			<div class="col-md-6 col-lg-4 col-xl-3">
+			<p id="legal-nav-label" class="screen-reader-text">
+				<?php esc_html_e( 'Legal Navigation', 'understrap' ); ?>
+			</p>
 
-				<footer class="site-footer" id="colophon">
+			<?php wp_nav_menu( array(
+				'theme_location'		  => 'legal',
+				'container_class' => 'collapse navbar-collapse navbar-light',
+				'container_id'    => 'navbarLegal',
+				'menu_class'      => 'navbar-nav mx-auto ms-md-0 flex-wrap',
+				'fallback_cb'     => '',
+				'menu_id'         => 'legal-menu',
+				'depth'           => 1,
+				'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
+			) ); ?>
 
-					<div class="site-info">
+		</nav>
 
-						<?php understrap_site_info(); ?>
+		<?php understrap_site_info(); ?>
 
-					</div><!-- .site-info -->
+		<?php if ( is_active_sidebar( 'subvenciones' ) ) { ?>
 
-				</footer><!-- #colophon -->
+			<div class="wrapper" id="wrapper-subvenciones">
+				<?php dynamic_sidebar( 'subvenciones' ); ?>
+			</div>
 
-			</div><!--col end -->
-
-			<div class="col-md-6 col-lg-8 col-xl-9">
-
-				<nav id="legal-nav" class="navbar navbar-expand navbar-light" aria-labelledby="legal-nav-label">
-
-					<p id="legal-nav-label" class="screen-reader-text">
-						<?php esc_html_e( 'Legal Navigation', 'understrap' ); ?>
-					</p>
-
-					<?php wp_nav_menu( array(
-						'theme_location'		  => 'legal',
-						'container_class' => 'collapse navbar-collapse navbar-dark',
-						'container_id'    => 'navbarLegal',
-						'menu_class'      => 'navbar-nav mx-auto me-md-0 flex-wrap',
-						'fallback_cb'     => '',
-						'menu_id'         => 'legal-menu',
-						'depth'           => 1,
-						'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
-					) ); ?>
-
-				</nav>
-
-			</div><!--col end -->
-
-			</div><!-- row end -->
+		<?php } ?>
 
 	</div><!-- .container(-fluid) -->
 
@@ -76,3 +64,4 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 </html>
 
+<?php

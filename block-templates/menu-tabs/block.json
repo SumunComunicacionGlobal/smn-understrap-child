@@ -1,0 +1,11 @@
+{
+    "name": "acf/menu-tabs",
+    "title": "Menú/Carta con pestañas y lista de precios",
+    "category": "content",
+    "icon": "image-filter",
+    "keywords": ["menu", "carta", "precios", "pestañas"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "menu-tabs.php"
+    }
+}

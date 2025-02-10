@@ -1,0 +1,8 @@
+article.type-post > .card {
+    background-image: url('../img/fondo-papel.jpg');
+    background-color: $white;
+    background-position: center;
+    background-size: cover;
+    box-shadow: $box-shadow;
+    border-radius: $border-radius;
+}

@@ -17,6 +17,8 @@ add_action( 'after_setup_theme', 'smn_setup', 20 );
 function smn_setup() {
 
 	register_nav_menus( array(
+        'secondary' => __( 'Menú secundario', 'smn-admin' ),
+        'desktop' => __( 'Desktop', 'smn-admin' ),
         'legal' => __( 'Páginas legales', 'smn-admin' ),
 	) );
 
@@ -26,18 +28,14 @@ function understrap_all_excerpts_get_more_link( $post_excerpt ) {
 	if ( ! is_admin() ) {
         global $post;
         if ( !$post->post_excerpt ) {
-            $post_excerpt = $post_excerpt . ' [...]';
+            $post_excerpt = $post_excerpt . '…';
         }
 
         if ( is_search() ) return $post_excerpt;
 
-        $post_excerpt .= '<div class="wp-block-buttons">';
-            $post_excerpt .= '<div class="wp-block-button is-style-arrow-link">';
-                $post_excerpt .= '<a class="wp-block-button__link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">';
-                    $post_excerpt .= __( 'Read More...', 'understrap' );
-                $post_excerpt .= '</a>';
-            $post_excerpt .= '</div>';
-        $post_excerpt .= '</div>';
+        $post_excerpt .= '<p class="read-more-text text-end">';
+            $post_excerpt .= '<span class="btn btn-link">'. __( 'Saber más', 'smn' ) .'<span class="btn-arrow">'. SVG_FLECHA .'</span></span>';
+        $post_excerpt .= '</p>';
 
     }
 

@@ -51,3 +51,5 @@ defined( 'ABSPATH' ) || exit;
 	</div>
 
 </article><!-- #post-## -->
+
+<?php

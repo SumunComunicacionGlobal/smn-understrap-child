@@ -8,12 +8,15 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+define( 'PLACEHOLDER_ID', 13 );
+define( 'RESERVA_ID', 1530 );
+define( 'SVG_FLECHA', '<svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 10L5.5 6L1.5 2" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>' );
 // UnderStrap's includes directory.
 $understrap_inc_dir = 'inc';
 
 // Array of files to include.
 $understrap_includes = array(
-    '/smn-dummy-content.php',
+    // '/smn-dummy-content.php',
     '/smn-security.php',
     '/smn-seo.php',
     '/smn-widgets.php',
@@ -57,10 +60,18 @@ function understrap_remove_scripts() {
 
 	wp_dequeue_script( 'understrap-scripts' );
 	wp_deregister_script( 'understrap-scripts' );
+	
 }
 add_action( 'wp_enqueue_scripts', 'understrap_remove_scripts', 20 );
 
-
+// Remove each WooCommerce style one by one
+// add_filter( 'woocommerce_enqueue_styles', 'smn_wc_dequeue_styles' );
+function smn_wc_dequeue_styles( $enqueue_styles ) {
+	unset( $enqueue_styles['woocommerce-general'] );	// Remove the gloss
+	// unset( $enqueue_styles['woocommerce-layout'] );		// Remove the layout
+	// unset( $enqueue_styles['woocommerce-smallscreen'] );	// Remove the smallscreen optimisation
+	return $enqueue_styles;
+}
 
 /**
  * Enqueue our stylesheet and javascript file
@@ -77,14 +88,21 @@ function theme_enqueue_styles() {
 	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 	// Grab asset urls.
 	$theme_styles  = "/css/child-theme{$suffix}.css";
+	$woocommerce_styles = "/css/woocommerce{$suffix}.css";
 	$theme_scripts = "/js/child-theme{$suffix}.js";
 	
 	$css_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . $theme_styles );
 
 	wp_enqueue_style( 'smn-styles', get_stylesheet_directory_uri() . $theme_styles, array(), $css_version );
+	// wp_register_style( 'smn-woocommerce', get_stylesheet_directory_uri() . $woocommerce_styles, array(), $css_version );
+	// if ( class_exists( 'woocommerce' ) ) {
+	// 	wp_enqueue_style( 'smn-woocommerce' );
+	// }
+
 	wp_enqueue_script( 'jquery' );
 
 	wp_enqueue_script( 'slick', get_stylesheet_directory_uri() . '/js/slick/slick.min.js', null, null, true );
+    wp_enqueue_script( 'multi-animated-counter', get_stylesheet_directory_uri() . '/js/multi-animated-counter.js', null, null, true );
 
 	$js_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . $theme_scripts );
 	
@@ -93,7 +111,7 @@ function theme_enqueue_styles() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
+add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles', 999 );
 
 
 

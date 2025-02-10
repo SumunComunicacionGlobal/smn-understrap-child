@@ -9,7 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+<article <?php post_class( 'type-post' ); ?> id="post-<?php the_ID(); ?>">
 
 	<div class="card h-100">
 
@@ -17,26 +17,16 @@ defined( 'ABSPATH' ) || exit;
 
 			<?php
 			the_title(
-				sprintf( '<h2 class="entry-title h5"><a class="stretched-link" href="%s" rel="bookmark">', esc_url( get_permalink() ) ),
-				'</a></h2>'
+				sprintf( '<p class="entry-title fw-bold mb-0"><a class="stretched-link" href="%s" rel="bookmark">', esc_url( get_permalink() ) ),
+				'</a></p>'
 			);
 			?>
 
-			<?php if ( 'post' === get_post_type() ) : ?>
-
-				<div class="entry-meta">
-
-					<?php understrap_posted_on(); ?>
-
-				</div><!-- .entry-meta -->
-
-			<?php endif; ?>
-
 		</header><!-- .entry-header -->
 
-		<div class="card-body entry-summary">
+		<div class="card-body entry-summary small text-muted">
 
-			<?php the_excerpt(); ?>
+		<?php the_excerpt(); ?>
 
 			<footer class="entry-footer">
 
@@ -49,3 +39,5 @@ defined( 'ABSPATH' ) || exit;
 	</div>
 
 </article><!-- #post-## -->
+
+<?php

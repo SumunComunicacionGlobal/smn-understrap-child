@@ -9,8 +9,12 @@ const colors = [
 	'dark',
 	'black',
 	'white',
+	'white-body',
+	'light',
+	'dark',
 	'gray',
 	'gray-dark',
+	'body',
 ];
 
 module.exports = ( ctx ) => {

@@ -8,25 +8,37 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$post_type = 'testimonio';
+$testimonios = get_field( 'testimonios', 'option' );
+$testimonios_array = explode( PHP_EOL, $testimonios );
 
-$args = array(
-	'post_type'			=> $post_type,
-	'posts_per_page'	=> 6,
-	'orderby'			=> 'rand'
-);
+if ( $testimonios_array ) { ?>
 
-$q = new WP_Query($args);
+	<div class="slick-carousel-testimonios slick-carousel-padded slider-testimonios">
 
-if ( $q->have_posts() ) { ?>
+		<?php foreach( $testimonios_array as $t ) { 
+			
+			$testimonio = explode( '/', $t ); 
+			$texto = '"' . $testimonio[0] . '"';
+			if ( isset( $testimonio[1] ) ) {
+				$autor = $testimonio[1];
+			} else {
+				$autor = '*';
+			}
+			?>
 
-	<div class="slick-slider-default slider-testimonios">
+			<div class="slide-testimonio">
+			
+				<div class="wp-block-group block-testimonio shadow rounded">
+					<p class="block-testimonio-autor"><?php echo $autor; ?></p>
+					<p class="block-testimonio-texto"><?php echo $texto; ?></p>
+					<p class="block-testimonio-valoracion d-flex align-items-center justify-content-center">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/estrellas.svg" width="100" alt="<?php echo __( 'Valoración', 'smn' ); ?>" /><span class="ms-1"> 5/5</span>
+					</p>
+				</div>
 
-		<?php while ( $q->have_posts() ) { $q->the_post();
+			</div>
 
-			get_template_part( 'loop-templates/content', $post_type );
-
-		} ?>
+		<?php } ?>
 
 	</div>
 

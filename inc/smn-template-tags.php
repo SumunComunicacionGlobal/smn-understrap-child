@@ -86,25 +86,29 @@ function smn_get_breadcrumb() {
 		yoast_breadcrumb( '<div id="breadcrumbs" class="breadcrumb"><div class="breadcrumb-inner">','</div></div>' );
 	}
 
-	return ob_get_clean();
+	$r = ob_get_clean();
+
+	if ( $r ) {
+		return '<div class="breadcrumb-wrapper py-1">' . $r . '</div>';
+	}
 
 }
 
 function smn_breadcrumb() {
 	
 	$r = smn_get_breadcrumb();
-	
+
 	if ( $r ) {
-		echo '<div class="container py-1">';
+
 			echo $r;
-		echo '</div>';
+
 	}
 
 }
 
 function smn_get_navbar_class() {
 
-	$navbar_class = 'bg-primary navbar-dark';
+	$navbar_class = 'bg-white-body navbar-light';
 
 	if ( is_singular() ) {
 
@@ -112,7 +116,7 @@ function smn_get_navbar_class() {
 
 		switch ($navbar_bg) {
 			case 'navbar-light':
-				$navbar_class = 'bg-light navbar-light';
+				$navbar_class = 'bg-white-body navbar-light';
 				break;
 
 			case 'transparent':
@@ -120,11 +124,93 @@ function smn_get_navbar_class() {
 				break;
 			
 			default:
-				$navbar_class = 'bg-primary navbar-dark';
+				$navbar_class = 'bg-white-body navbar-light';
 			break;
 		}
 	}
 
 	return $navbar_class;
 
+}
+
+function smn_get_lista_de_precios( $content, $separator = '|' ) {
+
+	$lista = '';
+
+	if ( $content ) {
+
+		$content = explode( PHP_EOL, $content );
+		$lista = '<div class="price-list">';
+		foreach ( $content as $item ) {
+
+			$item = explode( $separator, $item );
+
+			if ( count( $item ) == 0 ) {
+
+				$lista .= '<div class="wp-block-separator"></div>';
+
+			} elseif( count( $item ) == 1 ) {
+
+				$item[0] = trim( $item[0] );
+
+				if ( !$item[0] ) {
+					// $lista .= '<div class="wp-block-separator"></div>';
+				} else {
+					$lista .= '<p class="text-center mt-4"><strong>' . $item[0] . '</strong></p>';
+				}
+
+			} else {
+
+				$lista .= '<div class="price-list-item mb-2">';
+					if ( isset( $item[0]) ) {
+						$lista .= '<div class="price-list-plato-precio d-flex align-items-center justify-content-between">';
+							$lista .= '<span class="price-list-plato">' . $item[0] . '</span>';
+							if ( isset( $item[1] ) ) {
+								$item[1] = str_replace( array( '€', ' €' ), '<span class="price-list-simbolo-moneda"> €</span>', $item[1] );
+								$lista .= '<span class="price-list-separador"></span>';
+								$lista .= '<span class="price-list-precio">' . $item[1] . '</span>';
+							}
+						$lista .= '</div>';
+					}
+					if ( isset( $item[2] ) ) {
+						$lista .= '<div class="price-list-plato-descripcion text-muted">' . $item[2] . '</div>';
+					}
+				$lista .= '</div>';
+
+			}
+		}
+
+		$lista .= '</div>';
+	}
+
+	return $lista;
+
+}
+
+function smn_cart_icon() {
+	
+	if ( is_cart() || is_checkout() ) return false;
+
+	echo do_shortcode( '[xoo_wsc_cart]' );
+
+}
+
+function smn_my_account_icon() {
+
+	if ( is_account_page() ) return;
+
+	// Link to my account page
+	$my_account_page_id = get_option( 'woocommerce_myaccount_page_id' );
+	$my_account_page_url = get_permalink( $my_account_page_id );
+
+	echo '<a class="ms-1" href="' . $my_account_page_url . '"><img width="24" height="24" src="' . get_stylesheet_directory_uri() . '/img/icon-account.svg" alt="'. __( 'Icono de persona misteriosa', 'smn' ) .'"></a>';
+
+}
+
+function smn_get_leer_mas_buttons() {
+
+	$r = '<a href="#" class="btn btn-sm btn-secondary leer-mas-btn leer-mas-btn-mas">'. __( 'Ver más', 'smn' ).'</a>';
+	$r .= '<a href="#" class="btn btn-sm btn-secondary leer-mas-btn leer-mas-btn-menos">'. __( 'Ver menos', 'smn' ).'</a>';
+
+	return $r;
 }

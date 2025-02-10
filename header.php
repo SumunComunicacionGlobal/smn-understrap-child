@@ -46,4 +46,3 @@ $navbar_type       = get_theme_mod( 'understrap_navbar_type', 'collapse' );
 	} elseif ( !is_page() && !is_search() && !is_404() ) {
 		get_template_part( 'global-templates/image-header' ); 
 	}
-	?>

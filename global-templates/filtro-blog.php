@@ -27,7 +27,7 @@ if ( $terms ) { ?>
 
 				<?php if ( $page_for_posts_id ) { ?>
 
-					<a class="nav-item nav-link <?php echo $ver_todo_active_class; ?>" href="<?php echo esc_url( get_the_permalink( $page_for_posts_id ) ); ?>"><?php echo __( 'All' ); ?></a>
+					<a class="nav-item nav-link <?php echo $ver_todo_active_class; ?>" href="<?php echo esc_url( get_the_permalink( $page_for_posts_id ) ); ?>"><?php echo __( 'Todo', 'smn' ); ?></a>
 
 				<?php } ?>
 

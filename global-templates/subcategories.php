@@ -3,43 +3,82 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-if ( !is_tax() && !is_category() && !is_tag() ) return;
-$current_term = get_queried_object();
+$terms = false;
 
-$terms = get_terms( array( 
-	'taxonomy' 		=> $current_term->taxonomy, 
-	'parent' 		=> $current_term->term_id, 
-	'hide_empty' 	=> true,
-) );
+if ( is_shop() ) {
+
+	$terms = get_terms( array( 
+		'taxonomy' 		=> 'product_cat', 
+		'parent' 		=> 0, 
+		'hide_empty' 	=> true,
+	) );
+
+} else {
+
+	 return false;
+
+	if ( !is_tax() && !is_category() && !is_tag() ) return;
+	$current_term = get_queried_object();
+
+	$terms = get_terms( array( 
+		'taxonomy' 		=> $current_term->taxonomy, 
+		'parent' 		=> $current_term->term_id, 
+		'hide_empty' 	=> true,
+	) );
+
+}
 
 if ( $terms ) { ?>
 
-	<div class="slick-carousel">
+	<p class="text-center">
+		<a class="btn btn-outline-dark" href="#desplegable-subcategorias" data-bs-toggle="collapse" aria-expanded="false" aria-controls="desplegable-subcategorias">
+			<?php _e( 'Ver todo', 'smn' ); ?>
+		</a>
+	</p>
 
-		<?php foreach ( $terms as $key => $term ) { ?>
+	<div class="collapse" id="desplegable-subcategorias">
 
-			<?php $img_id = get_term_meta( $term->term_id, 'thumbnail_id', true ); ?>
+		<div class="py-3">
+	
+			<div class="row g-2">
 
-			<div class="card subcategory">
+				<?php foreach ( $terms as $key => $term ) { ?>
 
-				<?php if ( $img_id ) echo wp_get_attachment_image( $img_id, 'medium', false, array( 'class' => 'card-img-top' ) ); ?>
+					<div class="col-md-4">
 
-				<div class="card-body">
+						<div class="card subcategory shadow">
 
-					<p class="h5 card-title"><?php echo $term->name; ?></p>
+							<div class="card-body">
 
-				</div>
+								<p class="text-uppercase card-title fw-bold">
+									<a class="stretched-link" href="<?php echo get_term_link( $term ); ?>" title="<?php echo $term->name; ?>">
+										<?php echo $term->name; ?>
+									</a>	
+								</p>
 
-				<div class="wp-block-buttons d-flex justify-content-end">
-					<div class="wp-block-button is-style-arrow-link">
-						<a class="wp-block-button__link" href="<?php echo get_term_link( $term ); ?>" title="<?php echo $term->name; ?>"><?php echo __( 'Ver más', 'smn' ); ?></a>
+								<p class="text-end">
+									<span class="btn btn-link pe-0 pb-0">
+										<span class="btn-text">
+											<?php _e( 'Ver más', 'smn' ); ?>
+										</span>
+										<span class="btn-arrow">
+											<?php echo SVG_FLECHA; ?>
+										</span>
+									</span>
+								</p>
+
+							</div>
+
+						</div>
+
 					</div>
-				</div>
+
+				<?php } ?>
 
 			</div>
 
-		<?php } ?>
+		</div>
 
 	</div>
 
-<?php } ?>
+<?php }

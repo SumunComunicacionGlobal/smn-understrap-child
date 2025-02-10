@@ -1,10 +1,51 @@
-// Local font example
-// @font-face {
-//     font-family: 'Bw Modelica';
-//     src: url('../fonts/BwModelica-Regular.eot');
-//     src: url('../fonts/BwModelica-Regular.eot?#iefix') format('embedded-opentype'),
-//          url('../fonts/BwModelica-Regular.woff2') format('woff2'),
-//          url('../fonts/BwModelica-Regular.woff') format('woff');
-//     font-weight: normal;
-//     font-style: normal;
-// }
+@font-face {
+    font-family: 'Scotch Display';
+    src: url('../fonts/ScotchDisplay-Roman.eot');
+    src: url('../fonts/ScotchDisplay-Roman.eot?#iefix') format('embedded-opentype'),
+        //  url('../fonts/ScotchDisplay-Roman.woff2') format('woff2'),
+        //  url('../fonts/ScotchDisplay-Roman.woff') format('woff'),
+         url('../fonts/ScotchDisplay-Roman.ttf') format('truetype'),
+         url('../fonts/ScotchDisplay-Roman.svg#ScotchDisplay-Roman') format('svg'),
+         url('../fonts/ScotchDisplay-Roman.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Scotch Display';
+    src: url('../fonts/ScotchDisplay-Italic.eot');
+    src: url('../fonts/ScotchDisplay-Italic.eot?#iefix') format('embedded-opentype'),
+        //  url('../fonts/ScotchDisplay-Italic.woff2') format('woff2'),
+        //  url('../fonts/ScotchDisplay-Italic.woff') format('woff'),
+         url('../fonts/ScotchDisplay-Italic.ttf') format('truetype'),
+         url('../fonts/ScotchDisplay-Italic.svg#ScotchDisplay-Roman') format('svg'),
+         url('../fonts/ScotchDisplay-Italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Verlag';
+    src: url('../fonts/VerlagBook.eot');
+    src: url('../fonts/VerlagBook.eot?#iefix') format('embedded-opentype'),
+    //      url('../fonts/VerlagBook.woff2') format('woff2'),
+    //      url('../fonts/VerlagBook.woff') format('woff'),
+    //      url('../fonts/VerlagBook.ttf') format('truetype'),
+    //      url('../fonts/VerlagBook.svg#ScotchDisplay-Roman') format('svg'),
+         url('../fonts/VerlagBook.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Verlag';
+    src: url('../fonts/VerlagBold.eot');
+    src: url('../fonts/VerlagBold.eot?#iefix') format('embedded-opentype'),
+        //  url('../fonts/VerlagBold.woff2') format('woff2'),
+        //  url('../fonts/VerlagBold.woff') format('woff'),
+        //  url('../fonts/VerlagBold.ttf') format('truetype'),
+        //  url('../fonts/VerlagBold.svg#ScotchDisplay-Roman') format('svg'),
+         url('../fonts/VerlagBold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}

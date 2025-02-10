@@ -1,23 +1,92 @@
+$footer-full-bg-color: $gray-400;
+
 #wrapper-prefooter {
 	border-top: 1px solid $gray-300;
 }
 
 #wrapper-footer-full {
-	background-color: $light;
+	background-color: $footer-full-bg-color;
+	padding-bottom: 0;
 }
 
 #wrapper-footer {
-	padding: $spacer 0 $spacer * 2;
-	background-color: $dark;
-	color: $white;
-	font-size: $font-size-sm;
-
-	a {
-		color: $white;
-	}
+	padding: 0 0 $spacer * 4;
+	background-color: $footer-full-bg-color;
 
 	@include media-breakpoint-down(md) {
 		text-align: center;
+	}
+
+}
+
+#wrapper-footer-logo {
+	position: relative;
+	margin-bottom: $spacer * 4;
+
+	&:before,
+	&:after {
+		content: "";
+		display: block;
+		position: absolute;
+		top: 62%;
+		border-bottom: $border-width solid $body-color;
+	}
+
+	&:before {
+		width: calc(50vw - 50% - $spacer);
+		margin-left: calc(50% - 50vw);
+	}
+
+	&:after {
+		width: calc(100% - 224px - $spacer);
+		right: 0;
+	}
+
+}
+
+#legal-menu {
+	
+	> li:first-child > a {
+		padding-left: 0;
+	}
+
+	> li:last-child > a {
+		padding-right: 0;
+	}
+
+}
+
+.fixed-cta {
+
+	* {
+		margin-bottom: 0;
+	}
+
+	.wp-block-cover,
+	.wp-block-cover__background,
+	.has-background-color {
+		border-radius: $border-radius-lg;
+		box-shadow: $box-shadow;
+
+		@include media-breakpoint-down(md) {
+			padding: $spacer * .5 $spacer * .75;
+		}
+	}
+
+	@include media-breakpoint-down(md) {
+	
+		.h1,
+		.h2,
+		.h3,
+		.h4,
+		.h5 {
+			font-size: $font-size-base * 1.25;
+		}
+
+		.has-small-font-size {
+			font-size: .6rem !important;
+		}
+
 	}
 
 }

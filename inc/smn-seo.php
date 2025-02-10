@@ -73,3 +73,21 @@ add_filter( 'rank_math/frontend/breadcrumb/items', function( $crumbs, $class ) {
     }
 	return $crumbs;
 }, 10, 2);
+
+add_filter('rank_math/frontend/breadcrumb/items', function ($crumbs, $class) {
+
+    // get woocommerce shop page title and url
+    $shopPage = get_post( wc_get_page_id( 'shop' ) );
+    $shopItem = [
+        $shopPage->post_title,
+        get_permalink( wc_get_page_id( 'shop' ) )
+    ];
+
+    
+	if (is_product_category()) {
+		array_splice($crumbs, 1, 0, array($shopItem));
+		return $crumbs;
+	}
+	
+	return $crumbs;
+}, 10, 2);

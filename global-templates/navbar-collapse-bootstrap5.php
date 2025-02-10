@@ -56,3 +56,5 @@ $navbar_class = smn_get_navbar_class();
 	</div><!-- .container(-fluid) -->
 
 </nav><!-- #main-nav -->
+
+<?php

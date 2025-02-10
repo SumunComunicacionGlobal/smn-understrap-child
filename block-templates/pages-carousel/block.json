@@ -1,0 +1,14 @@
+{
+    "name": "acf/pages-carousel",
+    "title": "Carrusel de páginas",
+    "category": "design",
+    "icon": "image-filter",
+    "keywords": ["slider"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "pages-carousel.php"
+    },
+    "supports": {
+        "color": true
+    }
+}

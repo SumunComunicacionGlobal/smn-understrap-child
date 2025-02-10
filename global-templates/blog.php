@@ -12,13 +12,13 @@ $args = array(
 	'ignore_row'		=> true,
 );
 
-$q = new WP_Query($args);
+$q = new WP_Query($args); ?>
 
-if ( $q->have_posts() ) { ?>
+<div class="wrapper blog-block" id="wrapper-blog">
 
-	<div class="wrapper blog-block" id="wrapper-blog">
+	<?php if ( $q->have_posts() ) { ?>
 
-		<div class="slick-carousel">
+		<div class="slick-carousel slick-carousel-padded slick-carousel-same-height slick-arrows-bottom">
 
 			<?php while ( $q->have_posts() ) { $q->the_post();
 
@@ -28,8 +28,16 @@ if ( $q->have_posts() ) { ?>
 
 		</div>
 
-	</div>
+		<div class="mt-5">
+			<a class="btn btn-outline-primary" href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>"><span class="btn-text"><?php _e( 'Ver todas las noticias', 'smn' ); ?></span><span class="btn-arrow"><?php echo SVG_FLECHA; ?></span></a>
+		</div>
 
-<?php }
+	<?php } else {
 
-wp_reset_postdata();
+		echo '<p class="text-start">' . __( 'Aún no hay nada aquí, pero pon atención a lo que viene…', 'smn' ) . '</p>'; 
+
+	} ?>
+
+</div>
+
+<?php wp_reset_postdata();

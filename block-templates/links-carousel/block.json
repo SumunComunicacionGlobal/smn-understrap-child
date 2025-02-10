@@ -1,0 +1,14 @@
+{
+    "name": "acf/links-carousel",
+    "title": "Carrusel de enlaces",
+    "category": "design",
+    "icon": "image-filter",
+    "keywords": ["slider"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "links-carousel.php"
+    },
+    "supports": {
+        "color": true
+    }
+}

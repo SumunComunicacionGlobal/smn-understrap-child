@@ -1,0 +1,14 @@
+{
+    "name": "acf/products-carousel",
+    "title": "Carrusel de productos",
+    "category": "design",
+    "icon": "image-filter",
+    "keywords": ["product", "woocommerce", "carousel", "carrusel", "slider"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "products-carousel.php"
+    },
+    "supports": {
+        "color": true
+    }
+}

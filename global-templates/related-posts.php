@@ -18,13 +18,14 @@ if ( $posts_ids ) {
 		'post__in'			=> $posts_ids,
 		'orderby'			=> 'post__in',
 		'order'				=> 'ASC',
+		'ignore_sticky_posts' => 1,
 	);
 
 	$q = new WP_Query($args);
 
 	if ( $q->have_posts() ) { ?>
 
-		<div class="slick-carousel related-posts">
+		<div class="slick-carousel slick-carousel-padded related-posts">
 
 			<?php while ( $q->have_posts() ) { $q->the_post();
 

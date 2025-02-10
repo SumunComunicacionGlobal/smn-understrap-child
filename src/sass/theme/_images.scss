@@ -3,8 +3,20 @@
 	background-position: center center;
 }
 
-.wp-block-image figcaption {
-	font-size: $font-size-sm;
+.wp-block-image {
+	
+	figcaption {
+		font-size: $font-size-sm;
+	}
+
+	figure.alignleft {
+		margin: 0 auto $spacer calc(50% - 50vw);
+	}
+
+}
+
+.wp-block-column .wp-block-image figure.alignleft {
+	margin-left: calc(100% - 50vw);
 }
 
 .object-fit-cover {
@@ -22,4 +34,25 @@ a {
 			opacity: .7;
 		}
 	}
+}
+
+.wp-block-column,
+.wp-block-media-text__content .is-style-lined-heading {
+	position: relative;
+}
+
+.is-style-overflow-right-bottom {
+	position: absolute;
+	right: -$grid-gutter-width*.5;
+	bottom: -$grid-gutter-width;
+}
+
+.card-img-top img {
+	height: 256px;
+	object-fit: cover;
+}
+
+article.type-menu .wp-post-image {
+	height: 128px;
+	width: auto;
 }
